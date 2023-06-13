@@ -17,6 +17,9 @@ class Ride
       return "#{rider.name} is not tall enough!"
     elsif rider.spending_money.to_f < @admission_fee
       return "#{rider.name} cannot afford it!"
+    elsif !rider.preferences.include?(@excitement)
+      return "#{rider.name} does not like that kind of ride!"
+
     else
       @rider_log[rider.name] = rider
       @rider_log
