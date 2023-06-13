@@ -1,6 +1,8 @@
 class Visitor
 
-  attr_reader :name, :height, :spending_money, :preferences
+  attr_reader :name, :height, :preferences
+  attr_accessor :spending_money
+  #I know this is poor principles but I needed to move on to the next method.
 
   def initialize(name, height, spending_money)
     @name = name
