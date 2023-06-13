@@ -35,9 +35,16 @@ describe Ride do
       expect(ride1.board_rider(visitor3)).to eq("#{visitor3.name} cannot afford it!")
     end 
 
+    it "can only add riders if they prefer the ride type" do 
+      ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+      visitor1 = Visitor.new('Bruce', 54, 10)
+      expect(ride1.board_rider(visitor1)).to eq("#{visitor1.name} does not like that kind of ride!")
+    end 
+
     it "can add riders to rider log" do 
       ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
       visitor1 = Visitor.new('Bruce', 54, 10)
+      visitor1.add_preference(:gentle)
       ride1.board_rider(visitor1)
       expect(ride1.rider_log[visitor1.name]).to eq(visitor1)
     end    
