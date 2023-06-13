@@ -51,9 +51,11 @@ describe Carnival do
       carnival = Carnival.new("Twistys", 14)
       ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
       ride2 = Ride.new({ name: 'Ferris Wheel', min_height: 36, admission_fee: 5, excitement: :gentle })
-      
+
       visitor1 = Visitor.new('Bruce', 54, 10)
       visitor1.add_preference(:gentle)
+
+      expect(carnival.total_revenue).to eq(0)
 
       ride1.board_rider(visitor1)
       ride2.board_rider(visitor1)
