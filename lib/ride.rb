@@ -12,4 +12,12 @@ class Ride
     @rider_log = {}
   end 
 
+  def board_rider(visitor)
+    if !visitor.tall_enough?(@min_height)
+      return "#{visitor.name} is not tall enough!"
+    elsif visitor.spending_money.to_f < @admission_fee.to_f
+      return "#{visitor.name} cannot afford it!"
+    end
+  end 
+
 end 
