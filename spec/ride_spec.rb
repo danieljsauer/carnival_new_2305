@@ -29,15 +29,17 @@ describe Ride do
   describe "instance methods" do 
     it "can add riders into rider log if they are tall enough and have enough cash" do 
       ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
-      visitor1 = Visitor.new('Bruce', 54, '$10')
       visitor2 = Visitor.new('Tucker', 20, '$5')
       visitor3 = Visitor.new('Penny', 64, '$0')
       expect(ride1.board_rider(visitor2)).to eq("#{visitor2.name} is not tall enough!")
       expect(ride1.board_rider(visitor3)).to eq("#{visitor3.name} cannot afford it!")
-
-      ride1.board_rider(visitor1)
-      expect(ride1.rider_log).to include(visitor1)
     end 
-  end 
 
+    it "can add riders to rider log" do 
+      ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+      visitor1 = Visitor.new('Bruce', 54, 10)
+      ride1.board_rider(visitor1)
+      expect(ride1.rider_log[visitor1.name]).to eq(visitor1)
+    end    
+  end 
 end 
