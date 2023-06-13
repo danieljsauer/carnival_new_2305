@@ -64,6 +64,25 @@ describe Carnival do
       ride2.board_rider(visitor1)
 
       expect(carnival.total_revenue).to eq(6)
+    end
+    it "can return the most popular ride" do 
+      carnival = Carnival.new("Twistys", 14)
+      ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+      ride2 = Ride.new({ name: 'Ferris Wheel', min_height: 36, admission_fee: 5, excitement: :gentle })
+
+      carnival.add_ride(ride1)
+      carnival.add_ride(ride2)
+
+      visitor1 = Visitor.new('Bruce', 54, "$10")
+      visitor1.add_preference(:gentle)
+
+      ride2.board_rider(visitor1)
+
+      expect(carnival.most_popular).to eq("Ferris Wheel")
+
     end 
+
+    #I was having difficulty keeping my old tests functional when adding the amount of times a rider rode a particular ride to my board_rider method. 
+    #My solution was going to be to add a ride count to the ride itself and then check that value here. It does not match the interaction pattern but its the best I could come up with with my final 10 mins
   end 
 end 
