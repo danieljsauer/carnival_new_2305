@@ -7,7 +7,7 @@ class Visitor
     @height = height
     @spending_money = spending_money.gsub("$", "").to_f
     #I just realized at 11:25 that I changed this ^ value in my tests to an integer. My solution is to keep the returns as an integer and just initialize this value from a string as an integer with the $ removed.
-    #This is obviously a sloppy fix but this is the best solution I can think of given my current time constraints. Not happy that I made such a silly mistake.
+    #This feels like a sloppy fix but this is the best solution I can think of given my current time constraints. Such a silly mistake! Will pay more attention to my interaction pattern next time. 
     @preferences = []
   end 
 

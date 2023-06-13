@@ -71,7 +71,6 @@ describe Ride do
 
       expect(ride1.rider_log).to include(visitor1.name, visitor3.name)
       expect(ride1.rider_log.keys.count).to eq(2)
-
     end 
 
 
