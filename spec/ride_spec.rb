@@ -55,7 +55,6 @@ describe Ride do
       visitor1.add_preference(:gentle)
       ride1.board_rider(visitor1)
       expect(ride1.total_revenue).to eq(1)
-      binding.pry 
       expect(visitor1.spending_money).to eq(9)
     end 
     
