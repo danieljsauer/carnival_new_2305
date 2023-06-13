@@ -48,5 +48,16 @@ describe Ride do
       ride1.board_rider(visitor1)
       expect(ride1.rider_log[visitor1.name]).to eq(visitor1)
     end    
+
+    it "adds revenue for a successfully boarded rider and rider cash is correctly deducted" do 
+      ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+      visitor1 = Visitor.new('Bruce', 54, 10)
+      visitor1.add_preference(:gentle)
+      ride1.board_rider(visitor1)
+      expect(ride1.total_revenue).to eq(1)
+      binding.pry 
+      expect(visitor1.spending_money).to eq(9)
+    end 
+
   end 
 end 
