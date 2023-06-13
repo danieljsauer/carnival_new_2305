@@ -58,6 +58,9 @@ describe Ride do
       binding.pry 
       expect(visitor1.spending_money).to eq(9)
     end 
+    
+    # I am not currently keeping track of how many times a rider has ridden that particular ride. I will get to this later if I have time. 
+    # add test for that here if you get to it. 
 
   end 
 end 
