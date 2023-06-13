@@ -20,4 +20,22 @@ describe Visitor do
     end 
   end 
 
+  describe "instance methods" do 
+    it "can add rides to preferences" do 
+      visitor1 = Visitor.new('Bruce', 54, '$10')
+      visitor1.add_preference(:gentle)
+      expect(visitor1.preferences).to eq([:gentle])
+      visitor1.add_preference(:thrilling)
+      expect(visitor1.preferences).to eq([:gentle, :thrilling])
+    end 
+
+    it "can check if visitor is tall enough" do 
+      visitor1 = Visitor.new('Bruce', 54, '$10')
+      visitor2 = Visitor.new('Tucker', 36, '$5')
+      expect(visitor1.tall_enough?(54)).to be true 
+      expect(visitor2.tall_enough?(54)).to be false 
+    end 
+
+  end 
+
 end 
