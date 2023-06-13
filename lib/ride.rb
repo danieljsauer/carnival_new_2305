@@ -19,6 +19,7 @@ class Ride
       return "#{rider.name} cannot afford it!"
     elsif !rider.preferences.include?(@excitement)
       return "#{rider.name} does not like that kind of ride!"
+      #In hindsight, I would throw all of these into a "check_rider method"
 
     else
       @rider_log[rider.name] = rider

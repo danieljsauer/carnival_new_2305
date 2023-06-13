@@ -37,7 +37,7 @@ describe Carnival do
       carnival.add_ride(ride1)
       carnival.add_ride(ride2)
 
-      visitor1 = Visitor.new('Bruce', 54, 10)
+      visitor1 = Visitor.new('Bruce', 54, "$10")
       visitor1.add_preference(:gentle)
 
       ride1.board_rider(visitor1)
@@ -54,8 +54,8 @@ describe Carnival do
 
       carnival.add_ride(ride1)
       carnival.add_ride(ride2)
-      
-      visitor1 = Visitor.new('Bruce', 54, 10)
+
+      visitor1 = Visitor.new('Bruce', 54, "$10")
       visitor1.add_preference(:gentle)
 
       expect(carnival.total_revenue).to eq(0)
