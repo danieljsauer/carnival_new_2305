@@ -58,6 +58,23 @@ describe Ride do
       expect(visitor1.spending_money).to eq(9)
     end 
     
+    it "can add multiple riders" do 
+      ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+      visitor1 = Visitor.new('Bruce', 54, "$10")
+      visitor3 = Visitor.new('Penny', 64, '$10')
+
+      visitor1.add_preference(:gentle)
+      visitor3.add_preference(:gentle)
+
+      ride1.board_rider(visitor1)
+      ride1.board_rider(visitor3)
+
+      expect(ride1.rider_log).to include(visitor1.name, visitor3.name)
+      expect(ride1.rider_log.keys.count).to eq(2)
+
+    end 
+
+
     # I am not currently keeping track of how many times a rider has ridden that particular ride. I will get to this later if I have time. 
     # add test for that here if you get to it. 
 
