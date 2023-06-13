@@ -21,6 +21,10 @@ describe Carnival do
       ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
       carnival.add_ride(ride1)
       expect(carnival.rides).to eq([ride1])
+      ride2 = Ride.new({ name: 'Ferris Wheel', min_height: 36, admission_fee: 5, excitement: :gentle })
+      carnival.add_ride(ride2)
+      expect(carnival.rides).to eq([ride1,ride2])
+      expect(carnival.rides.count).to eq(2)
     end 
   end 
 end 
