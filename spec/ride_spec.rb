@@ -19,6 +19,15 @@ describe Ride do
       ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
       expect(ride1.total_revenue).to eq(0)
     end
-     
+
+    it "has a rider log hash" do 
+      ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+      expect(ride1.rider_log).to eq ({})
+    end 
   end 
+
+  describe "instance methods" do 
+    xit "can board riders if they are "
+  end 
+
 end 
