@@ -35,5 +35,23 @@ class Carnival
     end
     total_revenue
   end 
-  
+
+  def most_popular 
+    return "No rides at carnival :(" if @rides.empty?
+    most_popular = @rides[0]
+    ride_count = 0 
+    @rides.each do |ride|
+      if ride.rider_log.keys.count > ride_count
+        ride_count = ride.rider_log.keys.count
+        most_popular = ride 
+      end 
+
+    end 
+    most_popular.name 
+  end 
+
+      #idea is to check for the number of keys in the ride object. not a perfect solution but best I am going to do right now.
+      #basing this off of my most profitable method more or less. 
+      #wow, cant belive that worked first try. Submitting pull request here.  
+    #this obviously only returns how many visitors have ridden the ride, does not include repeat rides by same visitor
 end 
