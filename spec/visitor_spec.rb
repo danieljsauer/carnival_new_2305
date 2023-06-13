@@ -35,7 +35,6 @@ describe Visitor do
       expect(visitor1.tall_enough?(54)).to be true 
       expect(visitor2.tall_enough?(54)).to be false 
     end 
-
   end 
 
 end 
